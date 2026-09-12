@@ -1,0 +1,39 @@
+DATA QUALITY REPORT
+===================
+
+1. Duplicate Records
+--------------------
+Duplicate rows(5) were identified in the dataset and removed.
+
+2. Incorrect Data Types
+-----------------------
+No variables were stored using inappropriate data types.
+
+
+3. Categorical Inconsistencies
+------------------------------
+The Gender variable contained inconsistent representations
+such as 'Male', 'male', 'Female', 'female'.
+These values were standardized to 'Male' and 'Female'.
+
+4. Impossible Values
+--------------------
+No Impossible values identified
+
+5. Outliers
+-----------
+Numerical variables were checked using the IQR method.
+Potential outliers were identified and investigated before
+deciding whether to retain or remove them.
+The outliers report was saved in the reports folder
+
+6. Missing Values
+-----------------
+Missing values were checked for all variables and handled
+according to the nature of each variable.
+
+Conclusion
+----------
+The dataset was cleaned and prepared for further exploratory
+data analysis and modelling.
+Cleaned Dataset was saved in data/processed. 
