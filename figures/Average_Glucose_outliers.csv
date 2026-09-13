@@ -1,0 +1,2 @@
+Patient_ID,Age,Gender,Region,Insurance_Type,Admission_Type,Hospital_Department,Length_of_Stay,Previous_Admissions,Previous_ER_Visits,Diabetes,Hypertension,Heart_Disease,Medication_Count,Lab_Test_Count,Average_Glucose,Systolic_BP,Discharge_Type,Followup_Scheduled,Followup_Attended,Treatment_Cost,Satisfaction_Score,Readmitted_30_Days
+P100213,75.0,Female,Western,Private,Urgent,Diabetes Care,4,0,1,Yes,Yes,Yes,7,6,212.1,129,Home with Follow-up,No,No,73825.0,5.0,No
