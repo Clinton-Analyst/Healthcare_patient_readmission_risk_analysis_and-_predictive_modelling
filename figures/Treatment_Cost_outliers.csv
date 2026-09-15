@@ -1,9 +1,9 @@
 Patient_ID,Age,Gender,Region,Insurance_Type,Admission_Type,Hospital_Department,Length_of_Stay,Previous_Admissions,Previous_ER_Visits,Diabetes,Hypertension,Heart_Disease,Medication_Count,Lab_Test_Count,Average_Glucose,Systolic_BP,Discharge_Type,Followup_Scheduled,Followup_Attended,Treatment_Cost,Satisfaction_Score,Readmitted_30_Days
-P100336,77.0,Female,Central,Cash,Emergency,Diabetes Care,9,2,0,No,Yes,No,9,9,163.6,145,Home,Yes,No,168795.0,2.5,No
-P100071,76.0,Female,Central,Cash,Emergency,General Medicine,13,3,3,Yes,Yes,Yes,10,13,130.3,142,Home,No,No,175750.0,2.7,Yes
+P100336,77.0,female,Central,Cash,Emergency,Diabetes Care,9,2,0,No,Yes,No,9,9,163.6,145,Home,Yes,No,168795.0,2.5,No
+P100071,76.0,female,Central,Cash,Emergency,General Medicine,13,3,3,Yes,Yes,Yes,10,13,130.3,142,Home,No,No,175750.0,2.7,Yes
 P100285,50.0,Male,Rift Valley,Cash,Emergency,General Medicine,16,1,1,No,No,No,6,12,93.5,96,Home,No,No,193024.0,4.1,Yes
-P100302,78.0,Male,Nairobi,Private,Elective,Surgery,17,3,4,No,Yes,No,8,11,87.2,152,Home,Yes,Yes,193348.0,4.2,No
-P100090,78.0,Female,Central,NHIF,Emergency,Orthopedics,45,1,5,Yes,Yes,No,9,9,204.8,144,Home with Follow-up,Yes,Yes,175772.0,4.2,Yes
-P100417,88.0,Female,Coast,Private,Elective,Diabetes Care,11,0,1,No,Yes,No,13,16,109.7,140,Other,No,No,167499.0,4.3,No
-P100015,,Female,Coast,NHIF,Urgent,Cardiology,17,2,2,No,Yes,No,6,7,94.8,165,Home,Yes,Yes,179551.0,4.6,Yes
+P100302,78.0,Male,Nairobi,Private,elective,Surgery,17,3,4,No,Yes,No,8,11,87.2,152,Home,Yes,Yes,193348.0,4.2,No
+P100090,78.0,female,Central,NHIF,Emergency,Orthopedics,45,1,5,Yes,Yes,No,9,9,204.8,144,Home with Follow-up,Yes,Yes,175772.0,4.2,Yes
+P100417,88.0,female,Coast,Private,elective,Diabetes Care,11,0,1,No,Yes,No,13,16,109.7,140,Other,No,No,167499.0,4.3,No
+P100015,,female,Coast,NHIF,urgent,Cardiology,17,2,2,No,Yes,No,6,7,94.8,165,Home,Yes,Yes,179551.0,4.6,Yes
 P100208,88.0,Male,Western,NHIF,Emergency,Orthopedics,11,1,0,Yes,Yes,No,9,10,170.7,133,Home,No,No,180021.0,3.8,Yes

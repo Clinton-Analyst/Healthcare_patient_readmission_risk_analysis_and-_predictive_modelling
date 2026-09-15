@@ -1,2 +1,2 @@
 Patient_ID,Age,Gender,Region,Insurance_Type,Admission_Type,Hospital_Department,Length_of_Stay,Previous_Admissions,Previous_ER_Visits,Diabetes,Hypertension,Heart_Disease,Medication_Count,Lab_Test_Count,Average_Glucose,Systolic_BP,Discharge_Type,Followup_Scheduled,Followup_Attended,Treatment_Cost,Satisfaction_Score,Readmitted_30_Days
-P100217,23.0,Female,Nyanza,NHIF,Emergency,Diabetes Care,3,1,2,No,Yes,No,5,11,131.9,191,Home,Yes,Yes,82145.0,3.4,No
+P100217,23.0,female,Nyanza,NHIF,Emergency,Diabetes Care,3,1,2,No,Yes,No,5,11,131.9,191,Home,Yes,Yes,82145.0,3.4,No
