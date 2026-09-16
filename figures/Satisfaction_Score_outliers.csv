@@ -1,3 +1,5 @@
 Patient_ID,Age,Gender,Region,Insurance_Type,Admission_Type,Hospital_Department,Length_of_Stay,Previous_Admissions,Previous_ER_Visits,Diabetes,Hypertension,Heart_Disease,Medication_Count,Lab_Test_Count,Average_Glucose,Systolic_BP,Discharge_Type,Followup_Scheduled,Followup_Attended,Treatment_Cost,Satisfaction_Score,Readmitted_30_Days
-P100496,48.0,female,Central,Private,elective,Surgery,7,0,5,No,No,No,6,14,123.5,130,Transfer,Yes,Yes,102212.0,7.0,No
+P100010,24.0,female,Nyanza,NHIF,Elective,General Medicine,5,2,2,No,No,Yes,5,7,151.0,145,Other,Yes,Yes,80693.0,1.8,No
+P100496,48.0,female,Central,Private,Elective,Surgery,7,0,5,No,No,No,6,14,123.5,130,Transfer,Yes,Yes,102212.0,7.0,No
 P100427,81.0,female,Eastern,NHIF,Emergency,Cardiology,2,2,3,No,No,No,5,5,83.4,141,Home,Yes,Yes,54928.0,0.0,No
+P100098,67.0,Male,Rift Valley,Employer,Emergency,General Medicine,3,0,0,No,Yes,No,10,12,105.2,116,Home,Yes,Yes,88421.0,1.8,No
