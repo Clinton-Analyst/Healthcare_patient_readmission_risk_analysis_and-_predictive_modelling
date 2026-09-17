@@ -1,28 +1,28 @@
 Patient_ID,Age,Gender,Region,Insurance_Type,Admission_Type,Hospital_Department,Length_of_Stay,Previous_Admissions,Previous_ER_Visits,Diabetes,Hypertension,Heart_Disease,Medication_Count,Lab_Test_Count,Average_Glucose,Systolic_BP,Discharge_Type,Followup_Scheduled,Followup_Attended,Treatment_Cost,Satisfaction_Score,Readmitted_30_Days
-P100496,48.0,female,Central,Private,Elective,Surgery,7,0,5,No,No,No,6,14,123.5,130,Transfer,Yes,Yes,102212.0,7.0,No
-P100056,21.0,Male,Coast,Private,Urgent,Diabetes Care,1,1,4,No,Yes,Yes,6,10,129.4,126,Home,Yes,Yes,63851.0,3.7,No
-P100138,20.0,female,Nyanza,NHIF,Urgent,Cardiology,3,2,4,Yes,No,No,8,4,108.7,124,Home with Follow-up,Yes,Yes,63761.0,4.5,No
+P100496,48.0,female,Central,Private,elective,Surgery,7,0,5,No,No,No,6,14,123.5,130,Transfer,Yes,Yes,102212.0,7.0,No
+P100056,21.0,Male,Coast,Private,urgent,Diabetes Care,1,1,4,No,Yes,Yes,6,10,129.4,126,Home,Yes,Yes,63851.0,3.7,No
+P100138,20.0,female,Nyanza,NHIF,urgent,Cardiology,3,2,4,Yes,No,No,8,4,108.7,124,Home with Follow-up,Yes,Yes,63761.0,4.5,No
 P100443,27.0,Male,Western,NHIF,Emergency,Pediatrics,1,1,4,No,No,Yes,4,9,131.9,125,Other,Yes,Yes,31235.0,3.1,No
-P100330,58.0,Male,Western,NHIF,Elective,Orthopedics,4,1,4,No,Yes,Yes,3,11,126.4,143,Home with Follow-up,Yes,Unknown,60097.0,4.3,No
-P100322,25.0,female,Rift Valley,NHIF,Elective,Diabetes Care,6,0,5,No,No,Yes,5,11,77.6,140,Home with Follow-up,No,No,109746.0,4.2,No
-P100401,90.0,Male,Nairobi,NHIF,Elective,Diabetes Care,1,2,4,No,Yes,No,6,4,136.2,146,Home,Yes,Yes,50490.0,4.4,No
-P100119,35.0,Male,Central,Unknown,Urgent,Cardiology,6,1,4,No,No,Yes,6,8,65.7,85,Home with Follow-up,Yes,Yes,88216.0,4.1,No
+P100330,58.0,Male,Western,NHIF,elective,Orthopedics,4,1,4,No,Yes,Yes,3,11,126.4,143,Home with Follow-up,Yes,,60097.0,4.3,No
+P100322,25.0,female,Rift Valley,NHIF,elective,Diabetes Care,6,0,5,No,No,Yes,5,11,77.6,140,Home with Follow-up,No,No,109746.0,4.2,No
+P100401,90.0,Male,Nairobi,NHIF,elective,Diabetes Care,1,2,4,No,Yes,No,6,4,136.2,146,Home,Yes,Yes,50490.0,4.4,No
+P100119,35.0,Male,Central,,urgent,Cardiology,6,1,4,No,No,Yes,6,8,65.7,85,Home with Follow-up,Yes,Yes,88216.0,4.1,No
 P100383,87.0,Male,Coast,Private,Emergency,Diabetes Care,3,2,4,No,Yes,No,9,7,111.4,169,Home with Follow-up,No,No,60651.0,2.7,No
-P100302,78.0,Male,Nairobi,Private,Elective,Surgery,17,3,4,No,Yes,No,8,11,87.2,152,Home,Yes,Yes,193348.0,4.2,No
+P100302,78.0,Male,Nairobi,Private,elective,Surgery,17,3,4,No,Yes,No,8,11,87.2,152,Home,Yes,Yes,193348.0,4.2,No
 P100229,57.0,female,Nairobi,Cash,Emergency,Diabetes Care,6,3,6,No,No,No,8,15,166.6,123,Home,Yes,Yes,119416.0,3.6,Yes
 P100197,43.0,other,Nairobi,NHIF,Emergency,Surgery,2,1,5,Yes,Yes,No,6,4,120.9,149,Home,Yes,No,50082.0,3.6,No
 P100090,78.0,female,Central,NHIF,Emergency,Orthopedics,45,1,5,Yes,Yes,No,9,9,204.8,144,Home with Follow-up,Yes,Yes,175772.0,4.2,Yes
-P100384,35.0,Male,Rift Valley,Cash,Elective,Surgery,3,2,4,No,Yes,No,5,9,105.1,106,Home with Follow-up,No,No,54266.0,3.2,Yes
-P100405,54.0,female,Eastern,NHIF,Elective,Cardiology,4,1,4,No,Yes,No,3,7,100.3,146,Home,Yes,Yes,72061.0,2.8,No
+P100384,35.0,Male,Rift Valley,Cash,elective,Surgery,3,2,4,No,Yes,No,5,9,105.1,106,Home with Follow-up,No,No,54266.0,3.2,Yes
+P100405,54.0,female,Eastern,NHIF,elective,Cardiology,4,1,4,No,Yes,No,3,7,100.3,146,Home,Yes,Yes,72061.0,2.8,No
 P100394,61.0,Male,Nyanza,NHIF,Emergency,General Medicine,3,2,4,No,Yes,No,12,5,149.8,130,Home with Follow-up,Yes,No,85596.0,3.1,No
 P100358,83.0,Male,Nyanza,NHIF,Emergency,Cardiology,7,0,5,Yes,No,No,7,10,134.4,85,Home with Follow-up,Yes,Yes,129498.0,4.1,Yes
 P100487,42.0,Male,Rift Valley,Cash,Emergency,Surgery,6,0,4,Yes,No,No,5,14,168.0,104,Home with Follow-up,Yes,No,101394.0,4.3,No
-P100233,19.0,female,Nyanza,NHIF,Elective,Surgery,3,1,5,Yes,Yes,No,7,12,152.5,144,Other,No,No,83862.0,4.1,No
-P100041,30.0,female,Nairobi,NHIF,Urgent,Cardiology,3,1,4,No,No,No,7,12,91.7,123,Transfer,No,No,69876.0,3.3,No
-P100380,37.0,female,Central,NHIF,Elective,Orthopedics,1,2,4,Yes,No,No,8,6,111.6,106,Home,No,No,42533.0,4.3,No
+P100233,19.0,female,Nyanza,NHIF,elective,Surgery,3,1,5,Yes,Yes,No,7,12,152.5,144,Other,No,No,83862.0,4.1,No
+P100041,30.0,female,Nairobi,NHIF,urgent,Cardiology,3,1,4,No,No,No,7,12,91.7,123,Transfer,No,No,69876.0,3.3,No
+P100380,37.0,female,Central,NHIF,elective,Orthopedics,1,2,4,Yes,No,No,8,6,111.6,106,Home,No,No,42533.0,4.3,No
 P100402,74.0,female,Nairobi,NHIF,Emergency,General Medicine,2,0,4,No,No,No,11,5,136.1,121,Home,Yes,No,50250.0,3.3,Yes
 P100264,85.0,Male,Nyanza,Cash,Emergency,Pediatrics,7,4,4,Yes,No,No,5,5,157.4,141,Home,Yes,Yes,141797.0,2.6,No
-P100486,34.0,female,Rift Valley,NHIF,Urgent,Diabetes Care,3,1,4,No,Yes,No,5,6,78.7,123,Home with Follow-up,No,No,50060.0,2.3,Yes
+P100486,34.0,female,Rift Valley,NHIF,urgent,Diabetes Care,3,1,4,No,Yes,No,5,6,78.7,123,Home with Follow-up,No,No,50060.0,2.3,Yes
 P100161,90.0,female,Nyanza,NHIF,Emergency,Diabetes Care,7,0,4,No,No,No,7,11,95.4,132,Home with Follow-up,Yes,No,115991.0,3.5,No
-P100258,25.0,female,Nyanza,Employer,Urgent,General Medicine,1,0,6,No,Yes,No,7,6,107.5,112,Home,No,No,67489.0,3.3,Yes
-P100373,47.0,other,Nyanza,NHIF,Urgent,Cardiology,2,0,4,Yes,Yes,No,7,7,199.7,168,Home,Yes,Yes,63773.0,4.9,No
+P100258,25.0,female,Nyanza,Employer,urgent,General Medicine,1,0,6,No,Yes,No,7,6,107.5,112,Home,No,No,67489.0,3.3,Yes
+P100373,47.0,other,Nyanza,NHIF,urgent,Cardiology,2,0,4,Yes,Yes,No,7,7,199.7,168,Home,Yes,Yes,63773.0,4.9,No
