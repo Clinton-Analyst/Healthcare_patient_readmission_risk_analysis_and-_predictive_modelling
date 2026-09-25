@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ClintonCare · Patient Readmission Prediction</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">♥</div>
+        <div>
+          <div class="brand-name">ClintonCare</div>
+          <div class="brand-sub">READMISSION SUPPORT</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item">Dashboard</a>
+        <a href="#" class="nav-item">Reports</a>
+        <a href="#" class="nav-item active">Patient Readmission Prediction</a>
+        <a href="#" class="nav-item">Dataset Upload</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+      <header class="page-header">
+        <h1>Patient Readmission Prediction</h1>
+        <p>Estimate 30-day readmission risk for an individual discharge</p>
+      </header>
+
+      <div class="panels">
+        <!-- ------------ Patient Information------------------- -->
+        <form id="prediction-form" class="card form-card">
+          <section class="field-group">
+            <div class="field-group-header">
+              <h2>Patient Information</h2>
+              <span class="required-note">Required fields marked *</span>
+            </div>
+            <div class="field-row">
+              <label>Patient ID 
+                <input type="text"  />
+              </label>
+              <label>Age *
+                <input type="number" name="age" min="0" max="120" value=" " required />
+              </label>
+              <label>Gender *
+                <select name="Gender" required>
+                  <option>Female</option>
+                  <option>Male</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Insurance Type *
+                <select name=" " required>
+                  <option>NHIF</option>
+                  <option>Employer</option>
+                  <option>Cash</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>Region *
+                <select name=" " required>
+                  <option>Coast</option>
+                  <option>Eastern</option>
+                  <option>Nairobi</option>
+                  <option>Central</option>
+                  <option>Western</option>
+                  <option>Nyanza</option>
+                  <option>Rift Valley</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <!---------------Admission Information------------->
+
+          <section class="field-group">
+            <div class="field-group-header">
+              <h2>Admission Information</h2>
+            </div>
+            <div class="field-row">
+              <label>Admission Type *
+              <select name="Admission_Type" required>
+                <option value="">Emergency</option>
+                <option value="">Elective</option>
+                <option value="">Other</option>
+              </select>
+              </label>
+                <label>Hospital Department *
+              <select name="Hospital_Department" required>
+                <option value="">Diabetes Care</option>
+                <option value="">General Medicine</option>
+                <option value="">Cardiology</option>
+                <option value="">Orthopedics</option>
+                <option value="">Pediatrics</option>
+                <option value="">Others</option>
+              </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>Length of Stay *
+              <input type="number" name="Length_of_Stay" min="0" value="30" />
+              <label>Previous Admissions *
+                <input type="number" name="Previous_Admissions" min="0" value="30" />
+              </label>
+              <label>Previous ER Visits *
+                  <input type="number" name="Previous_ER_Visits" min="0" value="30" />
+              </label>
+            </div>
+          </section>
+
+          <!-------------Clinical Information------------------>
+
+          <section class="field-group">
+            <div class="field-group-header">
+              <h2>Clinical Information</h2>
+            </div>
+            <div class="field-row">
+              <label>Diabetes *
+              <select name="Diabetes" required>
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+              </label>
+              <label>Hypertension *
+              <select name="Hypertension" required>
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+              </label>
+              <label>Heart Disease *
+              <select name="Heart_Disease" required>
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>Average Glucose *
+              <input type="number" name="Average_Glucose" min="0" value="200" />
+              <label>Systolic BP *
+                <input type="number" name="Systolic_BP" min="0" value="220" />
+              </label>
+              <label>Medication Count *
+                  <input type="number" name="Medication_Count" min="0" value="30" />
+              </label>
+              <label>Lab Test Count *
+                  <input type="number" name="Lab_Test_Count" min="0" value="30" />
+              </label>
+            </div>
+          </section>
+
+          <!---------Followup Discharge------------->
+
+          <section class="field-group">
+            <div class="field-group-header">
+              <h2>Followup Discharge</h2>
+            </div>
+            <div class="field-row">
+              <label>Followup Scheduled *
+              <select name="Followup_Scheduled" required>
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+              </label>
+              <label>Followup Attended *
+              <select name="Followup_Attended" required>
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+              </label>
+              <label>Discharge Type  *
+              <select name="Discharge_Type" required>
+                <option value="">Home</option>
+                <option value="">Home with Follow-up</option>
+                <option value="">Other</option>
+              </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>Treatment Cost *
+              <input type="number" name="Treatment_Cost" min="0"  />
+              <label>Satisfaction Score *
+                <input type="number" name="Satisfaction_Score" min="0" value="10" />
+              </label>
+            </div>
+          </section>
+
+
+
+
+          <button type="submit" class="btn-primary" id="submit-btn">
+            Predict readmission risk
+          </button>
+        </form>
+
+        <!-- Result -->
+        <aside class="card result-card">
+          <div class="result-eyebrow" id="result-eyebrow">Illustrative result</div>
+          <h2>Readmission risk</h2>
+
+          <div id="result-empty" class="result-empty">
+            Fill in the form and run a prediction to see this patient's estimated
+            30-day readmission risk.
+          </div>
+
+          <div id="result-body" class="result-body hidden">
+            <div class="risk-pct" id="risk-pct">--%</div>
+            <div class="risk-band-pill" id="risk-band">--</div>
+            <p class="risk-caption">
+              Estimated probability of readmission within 30 days of discharge.
+            </p>
+            <div id="top-factors"></div>
+          </div>
+
+          <div id="result-error" class="result-error hidden"></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
