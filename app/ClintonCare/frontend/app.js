@@ -30,6 +30,7 @@ form.addEventListener("submit", async (e) => {
     Gender: formData.get("Gender"),
     Region: formData.get("Region"),
     Insurance_Type: formData.get("Insurance_Type"),
+    Admission_Type: formData.get("Admission_Type"),
     Hospital_Department: formData.get("Hospital_Department"),
     Diabetes: formData.get("Diabetes"),
     Hypertension: formData.get("Hypertension"),
@@ -51,7 +52,10 @@ form.addEventListener("submit", async (e) => {
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.detail || `Request failed (${res.status})`);
+      const detail = Array.isArray(err.detail)
+        ? err.detail.map(({ loc, msg }) => `${loc.slice(1).join(".")}: ${msg}`).join("; ")
+        : err.detail;
+      throw new Error(detail || `Request failed (${res.status})`);
     }
 
     const data = await res.json();

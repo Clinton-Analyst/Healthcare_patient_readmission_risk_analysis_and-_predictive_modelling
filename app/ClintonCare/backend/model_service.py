@@ -26,25 +26,26 @@ MODEL_VERSION = "1.0.0"
 # Column order your model expects. Edit to match your training data.
 FEATURE_ORDER = [
     "Age",
+    "Gender",
+    "Region",
+    "Insurance_Type",
+    "Admission_Type",
+    "Hospital_Department",
     "Length_of_Stay",
     "Previous_Admissions",
     "Previous_ER_Visits",
+    "Diabetes",
+    "Hypertension",
+    "Heart_Disease",
     "Medication_Count",
     "Lab_Test_Count",
     "Average_Glucose",
     "Systolic_BP",
-    "Treatment_Cost",
-    "Satsfaction_Score",
-    "Gender",
-    "Region",
-    "Insurance_Type",
-    "Hospital_Department",
-    "Diabetes",
-    "Hypertension",
-    "Heart_Disease",
     "Discharge_Type",
     "Followup_Scheduled",
-    "Followup_Attended"
+    "Followup_Attended",
+    "Treatment_Cost",
+    "Satisfaction_Score",
 ]
 
 

@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 
 class PatientInput(BaseModel):
     # --- Patient details ---
-    Patient_ID: str=Field(..., description="e.g. 'PT001")
+    # Patient_ID: str = Field(..., description="e.g. 'PT001'")
     Age: int = Field(..., ge=0, le=120, description="Age in years")
     Gender: Literal["Male", "Female", "Other"]
     Region: Literal["Nairobi", "Eastern", "Rift Valley", "Coast", "Western"]
@@ -19,16 +19,16 @@ class PatientInput(BaseModel):
 
     # --- Admission Information ---
     Admission_Type: Literal["Emergency", "Elective","Other"]
-    Hospital_Department: Literal["Diabetes Care", "General Medcine", "Cardioloy", "Orthopedics", "Pediatrics"]
+    Hospital_Department: Literal["Diabetes Care", "General Medicine", "Cardiology", "Orthopedics", "Pediatrics"]
     Length_of_Stay: int = Field(..., ge=0, le=30)
-    Previous_Amissions: int = Field(..., ge=0, le=30)
+    Previous_Admissions: int = Field(..., ge=0, le=30)
     Previous_ER_Visits: int = Field(..., ge=0, le=30)
 
     # --- Clinical Information ---
     Diabetes: Literal["Yes", "No"]
     Hypertension: Literal["Yes", "No"]
     Heart_Disease: Literal["Yes", "No"]
-    Average_Glucose: int = Field(..., ge=0, le=20)
+    Average_Glucose: float = Field(..., ge=0, le=500)
     Systolic_BP: int = Field(..., ge=0, le=200)
     Medication_Count: int = Field(..., ge=0, le=30)
     Lab_Test_Count: int = Field(..., ge=0, le=30)
@@ -39,7 +39,7 @@ class PatientInput(BaseModel):
     Followup_Attended: Literal["Yes", "No"]
     Discharge_Type: Literal["Home", "Home with Follow-up", "Other"]
     Treatment_Cost: int = Field(..., ge=0, le=10000000)
-    Satisfaction_Score: int = Field(..., ge=0, le=10)
+    Satisfaction_Score: float = Field(..., ge=0, le=10)
 
     class Config:
        json_schema_extra = {
