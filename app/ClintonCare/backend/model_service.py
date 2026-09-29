@@ -1,69 +1,63 @@
-"""
-Wraps your trained model. Swap the loading logic and FEATURE_ORDER
-to match how your model was actually trained.
+"""Serve the portable logistic-regression model without native ML extensions."""
 
-Expected model file: backend/model/readmission_model.pkl
-Saved with joblib, exposing either:
-  - .predict_proba(X) -> returns [:, 1] as the positive-class probability, or
-  - .predict(X)        -> returns a probability/score directly
-
-If you trained with a scikit-learn Pipeline that includes your
-preprocessing (encoding, scaling), just drop that whole pipeline
-in as the pickle -- this file doesn't need to change.
-"""
-
-from pathlib import Path
+import json
+import math
 from functools import lru_cache
-
-import joblib
-import pandas as pd
+from pathlib import Path
 
 from schemas import PatientInput, PredictionResponse
 
-MODEL_PATH = Path(__file__).parent / "model" / "readmission_logistic_model.pkl"
-MODEL_VERSION = "1.0.0"
-
-# Column order your model expects. Edit to match your training data.
-FEATURE_ORDER = [
-    "Age",
-    "Gender",
-    "Region",
-    "Insurance_Type",
-    "Admission_Type",
-    "Hospital_Department",
-    "Length_of_Stay",
-    "Previous_Admissions",
-    "Previous_ER_Visits",
-    "Diabetes",
-    "Hypertension",
-    "Heart_Disease",
-    "Medication_Count",
-    "Lab_Test_Count",
-    "Average_Glucose",
-    "Systolic_BP",
-    "Discharge_Type",
-    "Followup_Scheduled",
-    "Followup_Attended",
-    "Treatment_Cost",
-    "Satisfaction_Score",
-]
+MODEL_PATH = Path(__file__).parent / "model" / "readmission_logistic_model.json"
 
 
 @lru_cache(maxsize=1)
 def get_model():
-    """Load once, cache for the life of the process."""
+    """Load the portable model once without importing native ML extensions."""
     if not MODEL_PATH.exists():
         raise FileNotFoundError(
-            f"No model found at {MODEL_PATH}. "
-            "Drop your trained model file there as 'readmission_model.pkl' "
-            "(joblib.dump(model, 'readmission_model.pkl'))."
+            f"No portable model found at {MODEL_PATH}. "
+            "Run export_model.py in an environment that can load the trained model."
         )
-    return joblib.load(MODEL_PATH)
+    with MODEL_PATH.open(encoding="utf-8") as model_file:
+        model = json.load(model_file)
+
+    numeric_count = len(model["numeric_features"])
+    category_count = sum(len(categories) for categories in model["categories"])
+    if (
+        len(model["numeric_mean"]) != numeric_count
+        or len(model["numeric_scale"]) != numeric_count
+        or len(model["categorical_features"]) != len(model["categories"])
+        or len(model["coefficients"]) != numeric_count + category_count
+        or any(scale <= 0 for scale in model["numeric_scale"])
+    ):
+        raise ValueError(f"Invalid portable model artifact: {MODEL_PATH}")
+    return model
 
 
-def _to_dataframe(patient: PatientInput) -> pd.DataFrame:
-    row = patient.model_dump()
-    return pd.DataFrame([row])[FEATURE_ORDER]
+def _predict_probability(patient: dict, model: dict) -> float:
+    coefficients = model["coefficients"]
+    coefficient_index = 0
+    logit = model["intercept"]
+
+    for feature, mean, scale in zip(
+        model["numeric_features"], model["numeric_mean"], model["numeric_scale"]
+    ):
+        logit += (float(patient[feature]) - mean) / scale * coefficients[coefficient_index]
+        coefficient_index += 1
+
+    for feature, categories in zip(model["categorical_features"], model["categories"]):
+        try:
+            category_index = categories.index(patient[feature])
+        except ValueError:
+            pass
+        else:
+            logit += coefficients[coefficient_index + category_index]
+        coefficient_index += len(categories)
+
+    if logit >= 0:
+        return 1 / (1 + math.exp(-logit))
+    exp_logit = math.exp(logit)
+    return exp_logit / (1 + exp_logit)
 
 
 def _risk_band(pct: float) -> str:
@@ -76,13 +70,7 @@ def _risk_band(pct: float) -> str:
 
 def predict(patient: PatientInput) -> PredictionResponse:
     model = get_model()
-    X = _to_dataframe(patient)
-
-    if hasattr(model, "predict_proba"):
-        proba = model.predict_proba(X)[0][1]
-    else:
-        proba = float(model.predict(X)[0])
-
+    proba = _predict_probability(patient.model_dump(), model)
     pct = round(float(proba) * 100, 1)
 
     # Optional: if your model/pipeline exposes feature importances,
@@ -93,5 +81,5 @@ def predict(patient: PatientInput) -> PredictionResponse:
         readmission_risk_pct=pct,
         risk_band=_risk_band(pct),
         top_factors=top_factors,
-        model_version=MODEL_VERSION,
+        model_version=model["model_version"],
     )

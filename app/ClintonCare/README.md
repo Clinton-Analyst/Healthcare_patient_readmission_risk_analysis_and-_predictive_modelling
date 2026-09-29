@@ -12,7 +12,7 @@ caresignal/
 │   ├── schemas.py           # Request/response validation
 │   ├── requirements.txt
 │   └── model/
-│       └── readmission_model.pkl   # <- put your trained model here
+│       └── readmission_logistic_model.json
 └── frontend/
     ├── index.html           # Matches the Patient Prediction screen
     ├── styles.css
@@ -21,25 +21,16 @@ caresignal/
 
 ## 1. Plug in your model
 
-1. Save your trained model with joblib:
-   ```python
-   import joblib
-   joblib.dump(model, "readmission_model.pkl")
-   ```
-   If your model needs preprocessing (encoding categorical fields like
-   `sex_at_birth` or `admission_type`, scaling numeric fields), save the
-   whole `sklearn.Pipeline` (preprocessor + model) as one object — that
-   way `model_service.py` doesn't need any changes.
+The API loads `backend/model/readmission_logistic_model.json`, a portable
+export of the fitted preprocessing and logistic-regression parameters. The
+inference process uses Python's standard library for model scoring, so it
+does not load scikit-learn's Windows DLLs.
 
-2. Copy the file to `backend/model/readmission_model.pkl`.
-
-3. Open `backend/model_service.py` and check `FEATURE_ORDER` matches the
-   column order/names your model was trained on. Rename as needed.
-
-If your model isn't scikit-learn-style (e.g. it's a saved PyTorch/TF
-model, or lives behind an existing API you call), only
-`model_service.py` needs to change — everything else (schemas, routes,
-frontend) stays the same.
+After retraining the pipeline, place its joblib file at
+`backend/model/readmission_logistic_model.pkl` and run `python export_model.py`
+from the backend directory using a Python environment that can load that
+pickle. The exporter writes the JSON artifact used by the API; the pickle is
+only needed for this offline export, never for serving.
 
 ## 2. Run the backend
 
