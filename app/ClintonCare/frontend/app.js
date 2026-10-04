@@ -1,6 +1,6 @@
 // Point this at your deployed backend when you go live
 // (e.g. "https://api.caresignal.yourdomain.com")
-const API_BASE_URL = "https://healthcare-patient-readmission-risk.onrender.com/";
+const API_BASE_URL = "https://healthcare-patient-readmission-risk.onrender.com";
 
 const form = document.getElementById("prediction-form");
 const submitBtn = document.getElementById("submit-btn");
