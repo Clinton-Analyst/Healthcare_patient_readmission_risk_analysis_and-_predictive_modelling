@@ -1,245 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ClintonCare · Patient Readmission Support</title>
-<link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="had.css">
 </head>
 <body>
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">CC</div>
-        <div>
-          <div class="brand-name">ClintonCare</div>
-          <div class="brand-sub">READMISSION SUPPORT</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="home.html" class="nav-item active">Home</a>
-        <a href="about.html" class="nav-item">About Us</a>
-        <a href="index.html" class="nav-item ">Readmission Support</a>
-        <a href="dashboard.html" class="nav-item">Dashboard</a>
-      </nav>
-    </aside>
+   <aside>
+    <div class="logo"><b>CC</b><strong>Readmission Support</strong></div>
+    <nav>
+        <a href="index.html" class="on" aria-current="page">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="prediction.html">Prediction Page</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+   </aside>
+   <main>
+        <style>
+        body {
+            background-image: url("hospital-room-interior-stockcake.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 
-    <!-- Main content -->
-    <main class="content">
-      <header class="page-header">
-        <h1>Patient Readmission Support</h1>
-        <p>Estimate 30-day readmission risk for an individual discharge</p>
-      </header>
+    <div class="page" id="home">
+        <h1>Spot the Readmission risk before Discharge Day</h1>
+        <p class="lead">ClintonCare Estimates which patients are likely to be readmitted within 30 days, so your team can plan for follow up while still on ward </p>
+        <a class="btn" href="prediction.html">Estimate Risk</a><a class="btn ghost" href="dashboard.html">View Dashboard</a>
 
-      <div class="panels">
-        <!-- ------------ Patient Information------------------- -->
-        <form id="prediction-form" class="card form-card">
-          <section class="field-group">
-            <div class="field-group-header">
-              <h2>Patient Information</h2>
-              <span class="required-note">Required fields marked *</span>
-            </div>
-            <div class="field-row">
-              <label>Patient ID 
-                <input type="text"  />
-              </label>
-              <label>Age *
-                <input type="text" name="Age" placeholder="e.g. 30" required />
-              </label>
-              <label>Gender *
-                <select name="Gender" required>
-                  <option value="">Select gender</option>
-                  <option>Female</option>
-                  <option>Male</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <!--<p class="hint">e.g. Female, Male, Other</p>-->
-            </div>
-            <div class="field-row">
-              <label>Insurance Type *
-                <select name="Insurance_Type" required>
-                  <option value="">Select insurance</option>
-                  <option>Employer</option>
-                  <option>NHIF</option>
-                  <option>Cash</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label>Region *
-                <select name="Region" required>
-                  <option value="">Select region</option>
-                  <option>Nairobi</option>
-                  <option>Eastern</option>
-                  <option>Rift Valley</option>
-                  <option>Coast</option>
-                  <option>Western</option>
-                </select>
-              </label>
-            </div>
-          </section>
+    <section>
+    <h2>Why teams use it</h2>
+    <div class="grid">
+      <div class="card"><h3>Predict early</h3><p>Get a risk estimate in seconds from routine admission data.</p></div>
+      <div class="card"><h3>Prioritize follow-up</h3><p>Put limited nurse and doctor time where the risk is highest.</p></div>
+      <div class="card"><h3>Reduce repeat admissions</h3><p>Fewer returns mean better recovery for patients and lower costs for the hospital.</p></div>
+    </div>
+  </section>
 
-          <!---------------Admission Information------------->
-
-          <section class="field-group">
-            <div class="field-group-header">
-              <h2>Admission Information</h2>
-            </div>
-            <div class="field-row">
-              <label>Admission Type *
-              <select name="Admission_Type" required>
-                <option value="">Select admission type</option>
-                <option>Emergency</option>
-                <option>Elective</option>
-                <option>Other</option>
-              </select>
-              </label>
-              <label>Hospital Department *
-                <select name="Hospital_Department" required>
-                  <option value="">Select department</option>
-                  <option>Diabetes Care</option>
-                  <option>General Medicine</option>
-                  <option>Cardiology</option>
-                  <option>Orthopedics</option>
-                  <option>Pediatrics</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="field-row">
-              <label>Length of Stay *
-              <input type="number" name="Length_of_Stay" min="0" max="30" placeholder="e.g. 20" required />
-              </label>
-              <label>Previous Admissions *
-                <input type="number" name="Previous_Admissions" min="0" max="30" placeholder="e.g. 5" required/>
-              </label>
-              <label>Previous ER Visits *
-                <input type="number" name="Previous_ER_Visits" min="0" max="30" placeholder="e.g. 10" required/>
-              </label>
-            </div>
-          </section>
-
-          <!-------------Clinical Information------------------>
-
-          <section class="field-group">
-            <div class="field-group-header">
-              <h2>Clinical Information</h2>
-            </div>
-            <div class="field-row">
-              <label>Diabetes *
-                <select name="Diabetes" required>
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-              <label>Hypertension *
-                <select name="Hypertension" required>
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-              <label>Heart Disease *
-                <select name="Heart_Disease" required>
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="field-row">
-              <label>Average Glucose *
-              <input type="number" name="Average_Glucose" min="0" max="500" step="any" placeholder="e.g. 20" required />
-              </label>
-              <label>Systolic BP *
-                <input type="number" name="Systolic_BP" min="0" max="200" placeholder="e.g. 130" required />
-              </label>
-              <label>Medication Count *
-                  <input type="number" name="Medication_Count" min="0" max="30" placeholder="e.g. 3" required />
-              </label>
-              <label>Lab Test Count *
-                  <input type="number" name="Lab_Test_Count" min="0" max="30" placeholder="e.g. 5" required />
-              </label>
-            </div>
-          </section>
-
-          <!---------Followup Discharge------------->
-
-          <section class="field-group">
-            <div class="field-group-header">
-              <h2>Followup Discharge</h2>
-            </div>
-            <div class="field-row">
-              <label>Followup Scheduled *
-                <select name="Followup_Scheduled" required>
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-              <label>Followup Attended *
-                <select name="Followup_Attended" required>
-                  <option value="">Select</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-              <label>Discharge Type  *
-                <select name="Discharge_Type" required>
-                  <option value="">Select discharge type</option>
-                  <option>Home</option>
-                  <option>Home with Follow-up</option>
-                  <option>Other</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="field-row">
-              <label>Treatment Cost *
-              <input type="number" name="Treatment_Cost" min="0" max="10000000" placeholder="e.g. 200000" required  />
-              </label>
-              <label>Satisfaction Score *
-                <input type="number" name="Satisfaction_Score" min="0" max="10" step="any" placeholder="e.g. 5" required />
-              </label>
-            </div>
-          </section>
-
-
-
-
-          <button type="submit" class="btn-primary" id="submit-btn">
-            Predict readmission risk
-          </button>
-        </form>
-
-        <!-- Result -->
-        <aside class="card result-card">
-          <div class="result-eyebrow" id="result-eyebrow">Illustrative result</div>
-          <h2>Readmission risk</h2>
-
-          <div id="result-empty" class="result-empty">
-            Fill in the form and run a prediction to see this patient's estimated
-            30-day readmission risk.
-          </div>
-
-          <div id="result-body" class="result-body hidden">
-            <div class="risk-pct" id="risk-pct">--%</div>
-            <div class="risk-band-pill" id="risk-band">--</div>
-            <p class="risk-caption">
-              Estimated probability of readmission within 30 days of discharge.
-            </p>
-            <div id="top-factors"></div>
-          </div>
-
-          <div id="result-error" class="result-error hidden"></div>
-        </aside>
-      </div>
-        <p>copyrights Developed by Clinton Munene, Data Scientist | Data Analyst | Statistician & AI Enthusiast</p>
-    </main>
-  </div>
-  <script src="app.js"></script>
+    <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><b>Enter patient details</b><span>Age, insurance, region, admission type, department and length of stay.</span></div>
+      <div class="step"><b>Run the prediction</b><span>The model returns a 30-day readmission risk.</span></div>
+      <div class="step"><b>Plan follow-up</b><span>Review the risk level and the factors behind it, then decide the next step.</span></div>
+    </div>
+  </section>
+    </div>
+   </main>
 </body>
 </html>

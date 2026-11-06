@@ -13,7 +13,7 @@
   --warn-fg: #9a6300;
   --ok-bg: #e3f3ea;
   --ok-fg: #1e7d4d;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: sans-serif;
 }
 
 * { box-sizing: border-box; }

@@ -14,7 +14,8 @@ caresignal/
 │   └── model/
 │       └── readmission_logistic_model.json
 └── frontend/
-    ├── index.html           # Matches the Patient Prediction screen
+    ├── index.html           # Home page and static-host default document
+    ├── prediction.html      # Patient prediction form
     ├── styles.css
     └── app.js                # Calls the API, renders the result panel
 ```
@@ -45,15 +46,17 @@ Check it's alive: `curl http://localhost:8000/api/health`
 
 ## 3. Run the frontend
 
-The frontend is plain HTML/CSS/JS — no build step. Just open
-`frontend/index.html` in a browser, or serve it:
+The frontend is plain HTML/CSS/JS — no build step. Open
+`frontend/index.html` for the home page (the default document), or serve the
+frontend directory:
 
 ```bash
 cd frontend
 python -m http.server 5500
 ```
 
-Then visit `http://localhost:5500`.
+Then visit `http://localhost:5500`. The prediction form is at
+`http://localhost:5500/prediction.html`.
 
 `app.js` calls `API_BASE_URL` (set to `http://localhost:8000` by
 default) — change that constant when you deploy the backend somewhere
